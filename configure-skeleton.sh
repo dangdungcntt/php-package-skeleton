@@ -77,8 +77,6 @@ for file in $files ; do
     new_file=`echo $file | sed -e "s/Skeleton/${class_name}/g"`
     mv "$temp_file" "$new_file"
 done
-mv "./config/skeleton.php" "./config/${package_name}.php"
-mv "./database/migrations/create_skeleton_table.php.stub" "./database/migrations/create${package_name_underscore}table.php.stub"
 
 if confirm "Execute composer install and phpunit test" ; then
     composer install && ./vendor/bin/phpunit
